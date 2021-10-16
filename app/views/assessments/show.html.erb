@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Test1:</strong>
+  <%= @assessment.test1 %>
+</p>
+
+<p>
+  <strong>Test2:</strong>
+  <%= @assessment.test2 %>
+</p>
+
+<p>
+  <strong>Test3:</strong>
+  <%= @assessment.test3 %>
+</p>
+
+<%= link_to 'Edit', edit_assessment_path(@assessment) %> |
+<%= link_to 'Back', assessments_path %>
