@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Test1:</strong>
+  <strong>Test 1:</strong>
   <%= @assessment.test1 %>
 </p>
 
 <p>
-  <strong>Test2:</strong>
+  <strong>Test 2:</strong>
   <%= @assessment.test2 %>
 </p>
 
 <p>
-  <strong>Test3:</strong>
+  <strong>Test 3:</strong>
   <%= @assessment.test3 %>
 </p>
 
-<%= link_to 'Edit', edit_assessment_path(@assessment) %> |
+<% unless @grades_count > 0 %>
+  <%= link_to 'Edit', edit_assessment_path(@assessment) %> |
+<% end %>
 <%= link_to 'Back', assessments_path %>

@@ -9,6 +9,7 @@ class AssessmentsController < ApplicationController
 
   # GET /assessments/1 or /assessments/1.json
   def show
+    @grades_count = Grade.count
   end
 
   # GET /assessments/new
@@ -43,6 +44,12 @@ class AssessmentsController < ApplicationController
 
   # PATCH/PUT /assessments/1 or /assessments/1.json
   def update
+    if (assessment_params[:test1].to_i + assessment_params[:test2].to_i + assessment_params[:test3].to_i + 5) != 10
+      @assessment.errors[:base] << "The tests sum, plus exame (5 points) must be 10."
+      render :edit
+      return
+    end
+
     respond_to do |format|
       if @assessment.update(assessment_params)
         format.html { redirect_to @assessment, notice: "Assessment was successfully updated." }

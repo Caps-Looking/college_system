@@ -16,56 +16,13 @@
 </p>
 
 <% unless @student.grade.nil? %>
-  <h2>Grades<h2>
-
-  <p>
-    <strong>Test 1: </strong>
-    <%= @student.grade.test1 %>
-  </p>
-
-  <p>
-    <strong>Test 2: </strong>
-    <%= @student.grade.test2 %>
-  </p>
-
-  <p>
-    <strong>Test 3: </strong>
-    <%= @student.grade.test3 %>
-  </p>
-
-  <p>
-    <strong>Exam: </strong>
-    <%= @student.grade.exam %>
-  </p>
-
-  <p>
-    <strong>Situation: </strong>
-    <%= @student.grade.situation %>
-  </p>
+  <%= render 'grades/grade' %>
+  <%= link_to 'Edit Grade', edit_student_grade_path(@student) %>
+  <br><br>
 <% end %>
-
-<% if @student.grade.nil? %>
-  <%= form_with model: [ @student, @student.build_grade ] do |form| %>
-    <p>
-      <%= form.label "Test 1" %><br>
-      <%= form.number_field :test1 %>
-    </p>
-    <p>
-      <%= form.label "Test 2" %><br>
-      <%= form.number_field :test2 %>
-    </p>
-    <p>
-      <%= form.label "Test 3" %><br>
-      <%= form.number_field :test3 %>
-    </p>
-    <p>
-      <%= form.label "Exam" %><br>
-      <%= form.number_field :exam %>
-    </p>
-    <p>
-      <%= form.submit %>
-    </p>
-  <% end %>
+  
+<% if @student.grade.nil? and !@assessment.nil? %>
+  <%= render 'grades/form' %>
 <% end %>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |

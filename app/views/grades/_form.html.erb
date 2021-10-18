@@ -1,0 +1,38 @@
+<%= form_with model: [ @student, @student.build_grade ] do |form| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+        <% @student.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% unless @assessment.test1 == 0 %>
+    <p>
+      <%= form.label "Test 1" %><br>
+      <%= form.number_field :test1 %>
+    </p>
+  <% end %>
+  <% unless @assessment.test2 == 0 %>
+    <p>
+      <%= form.label "Test 2" %><br>
+      <%= form.number_field :test2 %>
+    </p>
+  <% end %>
+  <% unless @assessment.test3 == 0 %>
+    <p>
+      <%= form.label "Test 3" %><br>
+      <%= form.number_field :test3 %>
+    </p>
+  <% end %>
+  <p>
+    <%= form.label "Exam" %><br>
+    <%= form.number_field :exam %>
+  </p>
+  <p>
+    <%= form.submit "Create/update grade" %>
+  </p>
+<% end %>

@@ -1,0 +1,32 @@
+<h2>Grades<h2>
+
+<% unless @assessment.test1 == 0 %>
+  <p>
+    <strong>Test 1: </strong>
+    <%= @student.grade.test1 %>
+  </p>
+<% end %>
+
+<% unless @assessment.test2 == 0 %>
+  <p>
+    <strong>Test 2: </strong>
+    <%= @student.grade.test2 %>
+  </p>
+<% end %>
+
+<% unless @assessment.test3 == 0 %>
+  <p>
+    <strong>Test 3: </strong>
+    <%= @student.grade.test3 %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Exam: </strong>
+  <%= @student.grade.exam %>
+</p>
+
+<p>
+  <strong>Situation: </strong>
+  <%= @student.grade.situation %>
+</p>
